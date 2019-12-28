@@ -12,19 +12,15 @@ const onLoadingHandler = (WrappedComponent, axios) => {
         isLoading: false,
       };
 
-      this.state.interceptorId = axios.interceptors.request.use(req => {
+      axios.interceptors.request.use(req => {
         this.setState({isLoading: true});
         return req;
       });
 
-      this.state.interceptorId = axios.interceptors.response.use(res => {
+      axios.interceptors.response.use(res => {
         this.setState({isLoading: false});
         return res;
       });
-    }
-
-    componentWillUnmount() {
-      axios.interceptors.response.eject(this.state.interceptorId)
     }
 
     render(){
