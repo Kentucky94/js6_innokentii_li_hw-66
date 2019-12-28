@@ -1,0 +1,37 @@
+.Post{
+  align-items: flex-start;
+  border: 3px solid black;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  padding: 30px;
+}
+
+.postDate{
+  margin: 0;
+}
+
+.postTitle{
+  font-size: 30px;
+  font-weight: bold;
+  margin: 30px 0;
+}
+
+.postMore{
+  background: cadetblue;
+  border: 2px solid black;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 10px 30px;
+}
+
+.postMore:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.postMore:focus{
+  outline: none;
+}

@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import {BrowserRouter, Switch, Route} from "react-router-dom";
+import Header from "./Components/Header/Header";
+import Posts from "./Containers/Posts/Posts";
+import NewPost from "./Containers/NewPost/NewPost";
+import About from "./Containers/About/About";
+import Contacts from "./Containers/Contacts/Contacts";
+import FullPost from "./Containers/FullPost/FullPost";
+import EditPost from "./Containers/EditPost/EditPost";
+import onLoadingHandler from "./Components/hoc/onLoadingHandler/onLoadingHandler";
+import axiosAPI from "./axiosAPI";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './App.css'
+
+class App extends Component {
+  render() {
+    return (
+      <BrowserRouter>
+        <div className="App">
+          <Header/>
+          <Switch>
+            <Route path='/' exact component={Posts}/>
+            <Route path='/posts/add' component={NewPost}/>
+            <Route path='/posts/:id' exact component={FullPost}/>
+            <Route path='/posts/:id/edit' component={EditPost}/>
+            <Route path='/about' component={About}/>
+            <Route path='/contacts' component={Contacts}/>
+            <Route render={() => <h1>NOT FOUND</h1>}/>
+          </Switch>
+        </div>
+      </BrowserRouter>
+    );
+  }
 }
 
-export default App;
+export default onLoadingHandler(App, axiosAPI);

@@ -1,0 +1,35 @@
+.EditPost{
+  align-items: flex-start;
+  border: 3px solid black;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  padding: 30px;
+}
+
+h4{
+  text-align: left;
+}
+
+form{
+  width: 90%;
+}
+
+.FormButton{
+  display: block;
+  margin: 20px 0 0 0;
+  padding: 10px 20px;
+}
+
+.FormTitle{
+  padding: 10px;
+  width: 100%;
+}
+
+.FormDescription{
+  padding: 10px;
+  height: 200px;
+  resize: none;
+  width: 100%;
+}
