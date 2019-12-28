@@ -13,13 +13,11 @@ const onLoadingHandler = (WrappedComponent, axios) => {
       };
 
       this.state.interceptorId = axios.interceptors.request.use(req => {
-        console.log('requested');
         this.setState({isLoading: true});
         return req;
       });
 
       this.state.interceptorId = axios.interceptors.response.use(res => {
-        console.log('responded');
         this.setState({isLoading: false});
         return res;
       });
